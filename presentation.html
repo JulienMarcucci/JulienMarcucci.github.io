@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Présentation personnelle - Julien Marcucci</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  
+  <!-- Ton CSS perso -->
+  <link rel="stylesheet" href="style.css" />
+  
+  <style>
+    header {
+  position: relative;
+  background: url('img/hebus_320x240_1739963520_1464.jpg') center/cover no-repeat;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+}
+
+header::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 0;
+}
+
+header .title {
+  position: relative;
+  font-size: 3rem;
+  font-weight: bold;
+  padding: 0.5rem 1.5rem;
+  border-radius: 0.5rem;
+  z-index: 1;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+}
+
+    .btn-custom {
+      background-color: #3F51B5;
+      color: white;
+      border-radius: 2rem;
+      padding: 0.8rem 2rem;
+      font-size: 1.25rem;
+      text-decoration: none;
+    }
+    .btn-custom:hover {
+      background-color: #2c3e9e;
+      color: white;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body class="no-contact">
+
+  <!-- Ici on charge la navbar depuis navbar.html -->
+  <div id="navbar-placeholder"></div>
+
+  <!-- Header avec image de fond -->
+  <header>
+    <h1 class="title">Profil</h1>
+  </header>
+
+  <main class="container my-5">
+    <h2>Mon parcours académique & professionnel</h2>
+
+    <h3>À propos de moi</h3>
+  <div class="row align-items-center mb-4">
+    <div class="col-md-4 text-center">
+      <img src="img/photo_de_profil.jpg" alt="Photo de Julien Marcucci" class="img-fluid rounded-circle shadow" style="max-width: 250px;">
+    </div>
+    <div class="col-md-8">
+      <p>Je m’appelle Julien MARCUCCI, j’ai 25 ans. Auparavant, j’ai fait des études de médecine et de comptabilité. Je suis passionné de ski. Je me forme pour devenir moniteur de ski. Aujourd’hui, j’effectue des études dans le domaine de l’informatique en BTS SIO option SISR.</p>
+    </div>
+  </div>
+
+    <div class="row mt-5">
+  <!-- Colonne gauche : Compétences -->
+  <div class="col-md-4">
+    <h3>Compétences</h3>
+    <ul class="list-unstyled">
+      <li class="mb-3">
+        <img src="https://img.icons8.com/color/48/000000/ms-word.png" alt="Word" class="me-2" />
+        Microsoft Word
+      </li>
+      <li class="mb-3">
+        <img src="https://img.icons8.com/color/48/000000/ms-excel.png" alt="Excel" class="me-2" />
+        Microsoft Excel
+      </li>
+      <li class="mb-3">
+        <img src="https://img.icons8.com/color/48/000000/ms-powerpoint.png" alt="PowerPoint" class="me-2" />
+        Microsoft PowerPoint
+      </li>
+    </ul>
+  </div>
+
+  <!-- Colonne droite : Expériences -->
+  <div class="col-md-8">
+    <h3>Expériences</h3>
+    <ul>
+      <li><strong>Formation monitorat de ski</strong> - en cours<br>→ J’ai travaillé un peu en tant que stagiaire en donnant des cours à des enfants/adultes.</li>
+      <li><strong>BTS Comptabilité et Gestion</strong> - Esccom, Nice - 2021-2022<br>- Stage de comptabilité - Cabinet Cérès, Nice<br>→ Enregistrement de factures, utilisation de logiciel comptable, archivage - juin/juillet 2022</li>
+      <li><strong>Missions intérim</strong> - juin 2019:<br>- équipier polyvalent - McDo, Carros<br>- Hôte d’accueil - European Orthodontic Society, Nice<br>- Animateur événementiel - Agence intérim Norela, Nice</li>
+      <li><strong>PACES</strong> - Faculté de médecine, Nice - 2018-2019<br>- Secrétaire médical - Cabinet médical, Saint Laurent du Var</li>
+      <li><strong>Etudes d’allemand</strong> - Christian Albrechts Universität, Kiel, Allemagne - 2017</li>
+      <li><strong>Bac S, spé physique</strong> - Lycée Henri Matisse, Vence - 2017</li>
+    </ul>
+  </div>
+</div>
+
+<section class="d-flex justify-content-center gap-3 my-4">
+  <a class="btn btn-custom" href="CV.pdf" target="_blank" rel="noopener noreferrer">CV</a>
+  <a class="btn btn-custom" href="https://www.linkedin.com/in/julien-marcucci-323055353/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+</section>
+
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+  <!-- Chargement dynamique de la navbar -->
+    fetch('navbar.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('navbar-placeholder').innerHTML = data;
+
+        // Gestion active link
+        const links = document.querySelectorAll('.nav-link');
+        links.forEach(link => {
+          if (link.href === window.location.href) {
+            link.classList.add('active');
+          }
+        });
+      });
+</script>
+ 
+<script>
+  fetch('footer.html')
+    .then(r => r.text())
+    .then(html => {
+      document.body.insertAdjacentHTML('beforeend', html);
+    })
+    .then(() => {
+      // Réactiver Bootstrap pour les modales chargées dynamiquement
+      var modalTriggerList = Array.from(document.querySelectorAll('[data-bs-toggle="modal"]'));
+      modalTriggerList.forEach(el => {
+        new bootstrap.Modal(document.getElementById(el.getAttribute('data-bs-target').substring(1)));
+      });
+    })
+    .catch(err => console.error('Erreur chargement footer:', err));
+</script>
+
+<script src="script.js"></script>
+
+</body>
+</html>

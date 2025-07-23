@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>BTS SIO - Julien Marcucci</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+  <!-- Icônes Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <link rel="stylesheet" href="style.css" />
+
+
+  <style>
+
+    .section-title {
+      color: #3F51B5;
+      margin-top: 2rem;
+    }
+
+    .btn-custom {
+      background-color: #3F51B5;
+      color: white;
+      border-radius: 2rem;
+      padding: 0.8rem 2rem;
+      font-size: 1.25rem;
+      text-decoration: none;
+    }
+
+    .btn-custom:hover {
+      background-color: #2c3e9e;
+      color: white;
+    }
+  </style>
+</head>
+
+<body class="no-contact">
+
+  <!-- Ici on charge la navbar depuis navbar.html -->
+  <div id="navbar-placeholder"></div>
+
+  <!-- En-tête avec image de fond -->
+  <header>
+    <h1 class="title">BTS SIO - Option SISR</h1>
+  </header>
+
+  <!-- Contenu principal -->
+  <main class="container my-5">
+
+    <h2 class="section-title">Qu’est-ce que le BTS SIO ?</h2>
+    <p>
+      Le <strong>BTS Services Informatiques aux Organisations (SIO)</strong> est un diplôme Bac+2 axé sur les métiers de l'informatique. Il se décline en deux spécialités :
+    </p>
+    <ul>
+      <li><strong>SLAM</strong> : développement logiciel et applications métiers</li>
+      <li><strong>SISR</strong> : gestion des réseaux, systèmes et infrastructures</li>
+    </ul>
+    <p>
+      Ce diplôme forme les étudiants à répondre aux besoins informatiques des entreprises via une approche pratique et professionnalisante.
+    </p>
+
+    <h2 class="section-title">L'option choisie : SISR</h2>
+    <p>
+      L’option <strong>SISR</strong> (Solutions d’Infrastructure, Systèmes et Réseaux) est centrée sur l’installation, la maintenance et la sécurisation des réseaux informatiques. Elle prépare aux métiers de technicien systèmes, administrateur réseau, ou support technique.
+    </p>
+    <h5>Compétences développées :</h5>
+    <ul>
+      <li>Gérer le patrimoine informatique</li>
+      <li>Répondre aux incidents et demandes d’assistance</li>
+      <li>Installer, configurer et sécuriser des serveurs (Windows, Linux)</li>
+      <li>Déployer des infrastructures réseaux (VLAN, VPN, pare-feux, proxy…)</li>
+      <li>Superviser, dépanner et maintenir un réseau</li>
+      <li>Travailler en mode projet</li>
+      <li>Assurer la cybersécurité des systèmes et des données</li>
+    </ul>
+
+    <h2 class="section-title">Programme de formation</h2>
+    <ul>
+      <li>Culture générale et expression</li>
+      <li>Anglais technique</li>
+      <li>Mathématiques appliquées à l’informatique</li>
+      <li>Algorithmique et programmation</li>
+      <li>Économie, droit et management informatique</li>
+      <li>Virtualisation (VMware, Hyper-V), Cloud computing</li>
+      <li>Messagerie (Exchange, Zimbra), supervision réseau</li>
+      <li>Cybersécurité, pare-feux, haute disponibilité, QoS</li>
+      <li>Projet technique en entreprise (PPE et stage)</li>
+    </ul>
+
+    <div class="text-center mt-4">
+      <a class="btn btn-custom" href="https://ecoleiris.fr/nice/formation/bts-1-sio-option-sisr" target="_blank" rel="noopener noreferrer">
+        Découvrir la formation IRIS Nice
+      </a>
+    </div>
+  </main>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+  <!-- Chargement dynamique de la navbar -->
+    fetch('navbar.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('navbar-placeholder').innerHTML = data;
+
+        // Gestion active link
+        const links = document.querySelectorAll('.nav-link');
+        links.forEach(link => {
+          if (link.href === window.location.href) {
+            link.classList.add('active');
+          }
+        });
+      });
+</script>
+
+<script>
+  fetch('footer.html')
+    .then(r => r.text())
+    .then(html => {
+      document.body.insertAdjacentHTML('beforeend', html);
+    })
+    .then(() => {
+      // Réactiver Bootstrap pour les modales chargées dynamiquement
+      var modalTriggerList = Array.from(document.querySelectorAll('[data-bs-toggle="modal"]'));
+      modalTriggerList.forEach(el => {
+        new bootstrap.Modal(document.getElementById(el.getAttribute('data-bs-target').substring(1)));
+      });
+    })
+    .catch(err => console.error('Erreur chargement footer:', err));
+</script>
+
+<script src="script.js"></script>
+
+
+</body>
+</html>
+

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Veille technologique - Julien Marcucci</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <link rel="stylesheet" href="style.css" />
+
+  <style>
+
+    main {
+      margin-top: 2rem;
+    }
+
+    .section-title {
+      color: #3F51B5;
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    article {
+      margin-bottom: 2rem;
+      padding: 1rem;
+      border: 1px solid #ddd;
+      border-radius: 0.5rem;
+      background-color: #f9f9f9;
+    }
+
+    article img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 0.5rem;
+      margin-bottom: 1rem;
+    }
+
+    a.btn-link {
+      color: #3F51B5;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    a.btn-link:hover {
+      text-decoration: underline;
+      color: #2c3e9e;
+    }
+  </style>
+</head>
+
+<body class="no-contact">
+
+  <!-- Navbar chargée dynamiquement -->
+  <div id="navbar-placeholder"></div>
+
+  <!-- En-tête -->
+  <header>
+    <h1 class="title">Veille technologique</h1>
+  </header>
+
+  <!-- Contenu principal -->
+  <main class="container">
+  <h3>L’importance de la veille</h3>
+  <p>Faire une veille permet de suivre les avancées technologiques pouvant offrir des opportunités au travail.</p>
+
+  <h4>J’ai décidé de traiter le thème de la réalité virtuelle :</h4>
+  <h4>→ Comment la réalité virtuelle impacte-t-elle notre société ?</h4>
+
+  <h2 class="section-title">Impact de la VR</h2>
+
+  <article>
+    <h3>1) Qu'est-ce que la réalité virtuelle (VR) ?</h3>
+    <p>La réalité virtuelle (VR) est une technologie immersive qui permet à un utilisateur de plonger dans un environnement généré par ordinateur, souvent via un casque dédié. Ce dispositif crée une sensation de présence en reproduisant visuellement et parfois auditivement un univers virtuel interactif, distinct du monde réel.</p>
+    <p>Grâce à des capteurs et des contrôleurs, l’utilisateur peut interagir avec cet environnement, ce qui ouvre de nombreuses possibilités dans les domaines du divertissement, de la formation, de la santé ou encore de la simulation.</p>
+  </article>
+
+  <article>
+    <h3>2) L’histoire de la réalité virtuelle</h3>
+    <p>Le concept de réalité virtuelle remonte aux années 1960 avec des chercheurs comme Ivan Sutherland, qui a développé un des premiers casques de réalité augmentée appelé "The Sword of Damocles". Dans les années 1980 et 1990, la VR a commencé à attirer l’attention avec des avancées technologiques, mais restait limitée par les coûts et la puissance informatique.</p>
+    <p>Ce n’est que dans les années 2010, avec la démocratisation des casques comme l’Oculus Rift, que la réalité virtuelle est devenue plus accessible au grand public, avec des applications grandissantes dans le jeu vidéo, la formation professionnelle et la médecine.</p>
+  </article>
+
+  <article>
+    <h3>3) Avantages et inconvénients de la VR</h3>
+    <p>Les avantages de la VR sont nombreux : elle offre des expériences immersives uniques, permet des simulations réalistes pour la formation, et peut même améliorer l’apprentissage en rendant les contenus plus engageants.</p>
+    <p>Cependant, la VR présente aussi des inconvénients. Le coût du matériel peut être élevé, certaines personnes peuvent souffrir de nausées ou de fatigue oculaire, et une utilisation prolongée peut entraîner un isolement social ou une dépendance. De plus, il existe des questions éthiques liées à la manipulation des réalités virtuelles.</p>
+  </article>
+
+  <article>
+    <h3>4) Impact de la VR sur notre société</h3>
+    <p>La réalité virtuelle influence progressivement divers secteurs de la société. Dans l’éducation, elle permet d’offrir des expériences d’apprentissage immersives qui favorisent la compréhension et la motivation des élèves. En médecine, elle est utilisée pour la formation des chirurgiens et le traitement de troubles psychologiques.</p>
+    <p>Par ailleurs, dans le monde professionnel, la VR facilite la formation à distance, la simulation de situations complexes, et améliore la collaboration à travers des environnements virtuels partagés. Enfin, elle transforme aussi les loisirs et les interactions sociales, en ouvrant la voie à de nouvelles formes de communication.</p>
+  </article>
+
+  <section>
+    <h2 class="section-title">Conclusion personnelle</h2>
+    <p>En somme, la réalité virtuelle est une technologie prometteuse qui redéfinit notre rapport au monde numérique et physique. Son développement doit toutefois s’accompagner d’une réflexion sur ses impacts sociaux et éthiques afin d’en tirer le meilleur parti tout en limitant les risques.</p>
+  </section>
+</main>
+
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Chargement dynamique de la navbar -->
+  <script>
+    fetch('navbar.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('navbar-placeholder').innerHTML = data;
+
+        // Gestion active link
+        const links = document.querySelectorAll('.nav-link');
+        links.forEach(link => {
+          if (link.href === window.location.href) {
+            link.classList.add('active');
+          }
+        });
+      });
+  </script>
+ <script>
+  fetch('footer.html')
+    .then(r => r.text())
+    .then(html => {
+      document.body.insertAdjacentHTML('beforeend', html);
+    })
+    .then(() => {
+      // Réactiver Bootstrap pour les modales chargées dynamiquement
+      var modalTriggerList = Array.from(document.querySelectorAll('[data-bs-toggle="modal"]'));
+      modalTriggerList.forEach(el => {
+        new bootstrap.Modal(document.getElementById(el.getAttribute('data-bs-target').substring(1)));
+      });
+    })
+    .catch(err => console.error('Erreur chargement footer:', err));
+</script>
+
+<script src="script.js"></script>
+
+</body>
+</html>
